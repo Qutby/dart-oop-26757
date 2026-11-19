@@ -50,4 +50,4 @@ Real output:
 5
 
 Was I right?
-Yes, the real output matched my prediction
+Yes, the real output matched my prediction that it's shown in Real output
