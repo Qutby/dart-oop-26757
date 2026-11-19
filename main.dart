@@ -52,3 +52,57 @@ class BusCard {
     }
   }
 }
+
+class StudentCard extends BusCard {
+  int _discount = 0;
+
+  // Constructor (done for you)
+  StudentCard(String owner, int balance, int discount) : super(owner, balance) {
+    _discount = discount;
+  }
+
+  // EXAMPLE: override showInfo (done for you)
+  @override
+  void showInfo() {
+    super.showInfo();
+    print('Student card: $_discount% off');
+  }
+
+  // TODO 4: override pay
+  @override
+  void pay(int fare) {
+    int off = fare * _discount ~/ 100;
+    print('Student discount: $off RWF');
+    super.pay(fare - off);
+  }
+}
+
+void main() {
+  // My numbers: D = 57, L = 7
+  // Starting balance = 1570 RWF, Bus fare = 257 RWF, Discount = 17%
+
+  // EXAMPLE: create a card and test the setter
+  BusCard card = BusCard('Yasir', 1570);
+  card.owner = 'Al'; // refused: name too short
+  card.showInfo();
+
+  // TODO 5: change the owner to my full name
+  card.owner = 'Yasir Altaher Mohammad Ahmad';
+  card.showInfo();
+
+  // TODO 6: top up 100 (refused), then 2000
+  card.topUp(100);
+  card.topUp(2000);
+
+  // TODO 7: pay the bus fare 2 times
+  card.pay(257);
+  card.pay(257);
+  card.showInfo();
+
+  // TODO 8: student card
+  StudentCard student = StudentCard('Yasir Altaher Mohammad Ahmad', 1570, 17);
+
+  // TODO 9: pay the bus fare with the student card
+  student.pay(257);
+  student.showInfo();
+}
