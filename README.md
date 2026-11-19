@@ -11,6 +11,7 @@
 - Student discount = 17%
 
 ## Output of main.dart
+```
 Error: name too short
 Owner: Yasir | Balance: 1570 RWF
 Owner: Yasir Altaher Mohammad Ahmad | Balance: 1570 RWF
@@ -23,6 +24,7 @@ Student discount: 43 RWF
 Paid 214 RWF
 Owner: Yasir Altaher Mohammad Ahmad | Balance: 1356 RWF
 Student card: 17% off
+```
 
 
 ## Part 1: Why no setter for balance?
@@ -47,8 +49,10 @@ My prediction:
 It prints 1 and then 5. For Bag a: add() makes items 1, then a.items = -5 is refused because the setter only accepts 0 or more, so it prints 1. For BigBag b: its add() calls super.add() twice, so each add() adds 2. Two calls give 4, then b.items = b.items + 1 makes 5.
 
 Real output:
+```
 1
 5
+```
 
 Was I right?
-Yes, the real output matched my prediction that it's shown in Real output
+Yes. I predicted 1 and 5, and the real output was 1 and 5. BigBag's add() calls super.add() twice, so each add() adds 2, and the setter refused -5 for the first bag.
